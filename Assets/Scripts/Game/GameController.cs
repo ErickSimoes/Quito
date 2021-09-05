@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour {
     }
 
     IEnumerator BlinkText() {
-        Color color = Color.white;
+        Color color = ClickHere.color;
         while(true) {
             color.a = .2f + Mathf.PingPong(Time.time, .8f);
             ClickHere.color = color;
