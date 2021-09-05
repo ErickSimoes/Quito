@@ -11,16 +11,23 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     TextMeshProUGUI ClickHere;
+    Coroutine blinkCoroutine;
+    bool blinkStoped = false;
 
     void Awake() {
         canvas = GetComponent<RectTransform>();
     }
 
     void Start() {
-        StartCoroutine(BlinkText());
+        blinkCoroutine = StartCoroutine(BlinkText());
     }
 
     public void OnClick() {
+        if (!blinkStoped) {
+            StopCoroutine(blinkCoroutine);
+            blinkStoped = true;
+        }
+        
         float x = (canvas.rect.width / 2) - circle.rect.width;
         float y = (canvas.rect.height / 2) - circle.rect.height;
         circle.localPosition = new Vector3(Random.Range(-x, x), Random.Range(-y, y));
