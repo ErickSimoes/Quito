@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour {
     public void OnClick() {
         if (!blinkStoped) {
             StopCoroutine(blinkCoroutine);
+            ClickHere.gameObject.SetActive(false);
             blinkStoped = true;
         }
         
