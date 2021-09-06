@@ -820,6 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circle: {fileID: 214587360}
   ClickHere: {fileID: 313234838}
+  scoreTMP: {fileID: 569075787}
 --- !u!1 &1450968369
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circle: {fileID: 0}
   ClickHere: {fileID: 0}
+  scoreTMP: {fileID: 0}
 --- !u!114 &1976399835
 MonoBehaviour:
   m_ObjectHideFlags: 0

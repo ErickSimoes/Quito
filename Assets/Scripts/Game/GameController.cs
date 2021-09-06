@@ -13,6 +13,10 @@ public class GameController : MonoBehaviour {
     TextMeshProUGUI ClickHere;
     bool blinkStoped = false;
 
+    [SerializeField]
+    TextMeshProUGUI scoreTMP;
+    int score = 0;
+
     void Awake() {
         canvas = GetComponent<RectTransform>();
     }
@@ -31,6 +35,9 @@ public class GameController : MonoBehaviour {
         float x = (canvas.rect.width / 2) - circle.rect.width;
         float y = (canvas.rect.height / 2) - circle.rect.height;
         circle.localPosition = new Vector3(Random.Range(-x, x), Random.Range(-y, y));
+
+        score++;
+        UnityMainThreadDispatcher.Instance().Enqueue(() => scoreTMP.text = $"Score: {score}");
     }
 
     IEnumerator BlinkText() {
