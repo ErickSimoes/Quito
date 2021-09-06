@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     TextMeshProUGUI ClickHere;
-    bool blinkStoped = false;
+    bool gameStarted = false;
 
     [SerializeField]
     TextMeshProUGUI scoreTMP;
@@ -26,10 +26,10 @@ public class GameController : MonoBehaviour {
     }
 
     public void OnClick() {
-        if (!blinkStoped) {
+        if (!gameStarted) {
             StopCoroutine(BlinkText());
             ClickHere.gameObject.SetActive(false);
-            blinkStoped = true;
+            gameStarted = true;
         }
         
         float x = (canvas.rect.width / 2) - circle.rect.width;
