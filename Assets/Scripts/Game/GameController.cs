@@ -11,7 +11,6 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     TextMeshProUGUI ClickHere;
-    Coroutine blinkCoroutine;
     bool blinkStoped = false;
 
     void Awake() {
@@ -19,12 +18,12 @@ public class GameController : MonoBehaviour {
     }
 
     void Start() {
-        blinkCoroutine = StartCoroutine(BlinkText());
+        UnityMainThreadDispatcher.Instance().Enqueue(BlinkText());
     }
 
     public void OnClick() {
         if (!blinkStoped) {
-            StopCoroutine(blinkCoroutine);
+            StopCoroutine(BlinkText());
             ClickHere.gameObject.SetActive(false);
             blinkStoped = true;
         }
