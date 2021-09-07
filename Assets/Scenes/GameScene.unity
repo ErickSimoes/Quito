@@ -821,6 +821,8 @@ MonoBehaviour:
   circle: {fileID: 214587360}
   ClickHere: {fileID: 313234838}
   scoreTMP: {fileID: 569075787}
+  timeTMP: {fileID: 2085801764}
+  limitTime: 20
 --- !u!1 &1450968369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1003,8 @@ MonoBehaviour:
   circle: {fileID: 0}
   ClickHere: {fileID: 0}
   scoreTMP: {fileID: 0}
+  timeTMP: {fileID: 0}
+  limitTime: 20
 --- !u!114 &1976399835
 MonoBehaviour:
   m_ObjectHideFlags: 0
