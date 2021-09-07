@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour {
     void Update() {
         if (gameStarted) {
             countTime = limitTime - ((int)Time.realtimeSinceStartup - initialTime);
-            timeTMP.text = $"Time: {countTime}"; // TODO: update with Dispatcher
+            UnityMainThreadDispatcher.Instance().Enqueue(() => timeTMP.text = $"Time: {countTime}");
 
             if (countTime <= 0) {
                 print("End Game"); // TODO: End game
