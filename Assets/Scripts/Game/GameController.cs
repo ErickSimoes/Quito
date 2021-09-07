@@ -17,12 +17,31 @@ public class GameController : MonoBehaviour {
     TextMeshProUGUI scoreTMP;
     int score = 0;
 
+    [SerializeField]
+    TextMeshProUGUI timeTMP;
+    [SerializeField]
+    int limitTime = 20;
+    int initialTime, countTime;
+
     void Awake() {
         canvas = GetComponent<RectTransform>();
     }
 
     void Start() {
         UnityMainThreadDispatcher.Instance().Enqueue(BlinkText());
+        
+        timeTMP.text = $"Time: {limitTime}";
+    }
+
+    void Update() {
+        if (gameStarted) {
+            countTime = limitTime - ((int)Time.realtimeSinceStartup - initialTime);
+            timeTMP.text = $"Time: {countTime}"; // TODO: update with Dispatcher
+
+            if (countTime <= 0) {
+                print("End Game"); // TODO: End game
+            }
+        }
     }
 
     public void OnClick() {
@@ -30,6 +49,8 @@ public class GameController : MonoBehaviour {
             StopCoroutine(BlinkText());
             ClickHere.gameObject.SetActive(false);
             gameStarted = true;
+
+            initialTime = (int)Time.realtimeSinceStartup;
         }
         
         float x = (canvas.rect.width / 2) - circle.rect.width;
