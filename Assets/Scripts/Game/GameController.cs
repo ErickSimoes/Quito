@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
     RectTransform canvas;
 
     [SerializeField]
-    TextMeshProUGUI ClickHere;
+    TextMeshProUGUI ClickHereTMP;
     bool gameStarted = false;
 
     [SerializeField]
@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour {
     public void OnClick() {
         if (!gameStarted) {
             StopCoroutine(BlinkText());
-            ClickHere.gameObject.SetActive(false);
+            ClickHereTMP.gameObject.SetActive(false);
             gameStarted = true;
 
             initialTime = (int)Time.realtimeSinceStartup;
@@ -62,10 +62,10 @@ public class GameController : MonoBehaviour {
     }
 
     IEnumerator BlinkText() {
-        Color color = ClickHere.color;
+        Color color = ClickHereTMP.color;
         while(true) {
             color.a = .2f + Mathf.PingPong(Time.time, .8f);
-            ClickHere.color = color;
+            ClickHereTMP.color = color;
             yield return new WaitForSeconds(0.05f);
         }
         
