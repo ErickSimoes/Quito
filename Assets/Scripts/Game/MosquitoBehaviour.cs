@@ -41,6 +41,9 @@ public class MosquitoBehaviour : MonoBehaviour {
     public void OnClick() {
         isAlive = false;
         CancelInvoke(nameof(ChoosePosition));
+
+        GetComponent<Animator>().enabled = false;
+
         //change sprite to mosquito_dead
     }
 }
