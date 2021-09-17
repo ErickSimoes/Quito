@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MosquitoBehaviour : MonoBehaviour {
 
@@ -10,6 +11,9 @@ public class MosquitoBehaviour : MonoBehaviour {
 
     [SerializeField]
     float speed = 150;
+    [SerializeField]
+    Sprite deadSprite;
+    Image image;
 
     Vector3 targetPosition;
     bool isAlive = true;
@@ -21,6 +25,8 @@ public class MosquitoBehaviour : MonoBehaviour {
             xRange = (gameCanvas.rect.width / 2) - myRectTransform.rect.width;
             yRange = (gameCanvas.rect.height / 2) - myRectTransform.rect.height;
         }
+
+        image = GetComponent<Image>();
 
         InvokeRepeating(nameof(ChoosePosition), 1f, Random.Range(1f, 3f));
     }
@@ -45,6 +51,6 @@ public class MosquitoBehaviour : MonoBehaviour {
 
         GetComponent<Animator>().enabled = false;
 
-        //change sprite to mosquito_dead
+        image.sprite = deadSprite;
     }
 }
