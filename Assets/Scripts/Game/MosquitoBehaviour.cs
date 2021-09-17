@@ -34,6 +34,12 @@ public class MosquitoBehaviour : MonoBehaviour {
     void Update() {
         if (isAlive) {
             myRectTransform.localPosition = Vector2.MoveTowards(myRectTransform.localPosition, targetPosition, speed * Time.deltaTime);
+
+            if (myRectTransform.localPosition.x < targetPosition.x) {
+                myRectTransform.localScale = new Vector3(-1, 1, 1);
+            } else {
+                myRectTransform.localScale = Vector3.one;
+            }
         }
 
         if (myRectTransform.localPosition == targetPosition) {
