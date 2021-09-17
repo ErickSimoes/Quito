@@ -8,7 +8,8 @@ public class MosquitoBehaviour : MonoBehaviour {
     static float xRange, yRange;
     RectTransform myRectTransform;
 
-    public float speed;
+    [SerializeField]
+    float speed = 150;
 
     Vector3 targetPosition;
     bool isAlive = true;
