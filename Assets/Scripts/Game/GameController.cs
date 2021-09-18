@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour {
 
     [SerializeField]
+    GameObject mosquito;
+    float time2create = 0f;
+
+    [SerializeField]
     Button startButton;
 
     [SerializeField]
@@ -34,10 +38,20 @@ public class GameController : MonoBehaviour {
             countTime = limitTime - ((int)Time.realtimeSinceStartup - initialTime);
             UnityMainThreadDispatcher.Instance().Enqueue(() => timeTMP.text = $"Time: {countTime}");
 
+            if (time2create < Time.realtimeSinceStartup) {
+                CreateMosquito();
+
+                time2create = Time.realtimeSinceStartup + Random.Range(0.5f, 4f);
+            }
+
             if (countTime <= 0) {
                 print("End Game"); // TODO: End game
             }
         }
+    }
+
+    void CreateMosquito() {
+        Instantiate(mosquito, transform);
     }
 
     public void OnClick() {

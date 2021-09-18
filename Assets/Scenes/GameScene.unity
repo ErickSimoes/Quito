@@ -818,6 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239c753040c6b14ca326e634c966647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mosquito: {fileID: 1455288964117817603, guid: ed2d902064589604b8750ce3f99f7eb4, type: 3}
   startButton: {fileID: 214587361}
   clickHereTMP: {fileID: 313234838}
   scoreTMP: {fileID: 569075787}
@@ -1000,6 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239c753040c6b14ca326e634c966647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mosquito: {fileID: 0}
   startButton: {fileID: 0}
   clickHereTMP: {fileID: 0}
   scoreTMP: {fileID: 0}
