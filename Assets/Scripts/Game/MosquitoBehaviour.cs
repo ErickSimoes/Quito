@@ -14,6 +14,7 @@ public class MosquitoBehaviour : MonoBehaviour {
     [SerializeField]
     Sprite deadSprite;
     Image image;
+    Animator animator;
 
     Vector3 targetPosition;
     bool isAlive = true;
@@ -27,6 +28,7 @@ public class MosquitoBehaviour : MonoBehaviour {
         }
 
         image = GetComponent<Image>();
+        animator = GetComponent<Animator>();
 
         InvokeRepeating(nameof(ChoosePosition), 1f, Random.Range(1f, 3f));
     }
@@ -55,8 +57,7 @@ public class MosquitoBehaviour : MonoBehaviour {
         isAlive = false;
         CancelInvoke(nameof(ChoosePosition));
 
-        GetComponent<Animator>().enabled = false;
-
+        animator.enabled = false;
         image.sprite = deadSprite;
     }
 }
