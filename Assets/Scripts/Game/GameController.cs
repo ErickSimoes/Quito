@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
+    [SerializeField]
+    Button startButton;
     RectTransform canvas;
 
     [SerializeField]
@@ -44,9 +47,11 @@ public class GameController : MonoBehaviour {
 
     public void OnClick() {
         if (!gameStarted) {
+            gameStarted = true;
+
             StopCoroutine(BlinkText());
             ClickHereTMP.gameObject.SetActive(false);
-            gameStarted = true;
+            startButton.gameObject.SetActive(false);
 
             initialTime = (int)Time.realtimeSinceStartup;
         }

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 214587362}
   - component: {fileID: 214587361}
   m_Layer: 5
-  m_Name: Button
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -818,7 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239c753040c6b14ca326e634c966647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 214587360}
+  startButton: {fileID: 214587361}
   ClickHereTMP: {fileID: 313234838}
   scoreTMP: {fileID: 569075787}
   timeTMP: {fileID: 2085801764}
@@ -893,7 +893,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: START
 --- !u!222 &1450968372
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239c753040c6b14ca326e634c966647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 0}
+  startButton: {fileID: 0}
   ClickHereTMP: {fileID: 0}
   scoreTMP: {fileID: 0}
   timeTMP: {fileID: 0}
