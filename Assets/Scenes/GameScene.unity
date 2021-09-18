@@ -819,7 +819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 214587361}
-  ClickHereTMP: {fileID: 313234838}
+  clickHereTMP: {fileID: 313234838}
   scoreTMP: {fileID: 569075787}
   timeTMP: {fileID: 2085801764}
   limitTime: 20
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 0}
-  ClickHereTMP: {fileID: 0}
+  clickHereTMP: {fileID: 0}
   scoreTMP: {fileID: 0}
   timeTMP: {fileID: 0}
   limitTime: 20
