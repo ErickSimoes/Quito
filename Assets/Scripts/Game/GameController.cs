@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-    [SerializeField]
-    RectTransform circle;
     RectTransform canvas;
 
     [SerializeField]
@@ -52,12 +50,8 @@ public class GameController : MonoBehaviour {
 
             initialTime = (int)Time.realtimeSinceStartup;
         }
-        
-        float x = (canvas.rect.width / 2) - circle.rect.width;
-        float y = (canvas.rect.height / 2) - circle.rect.height;
-        circle.localPosition = new Vector3(Random.Range(-x, x), Random.Range(-y, y));
 
-        score++;
+        score++; // TODO: Move this implementation to Mosquito
         UnityMainThreadDispatcher.Instance().Enqueue(() => scoreTMP.text = $"Score: {score}");
     }
 
