@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     Button startButton;
-    RectTransform canvas;
 
     [SerializeField]
     TextMeshProUGUI ClickHereTMP;
@@ -23,10 +22,6 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     int limitTime = 20;
     int initialTime, countTime;
-
-    void Awake() {
-        canvas = GetComponent<RectTransform>();
-    }
 
     void Start() {
         UnityMainThreadDispatcher.Instance().Enqueue(BlinkText());
@@ -67,6 +62,5 @@ public class GameController : MonoBehaviour {
             ClickHereTMP.color = color;
             yield return new WaitForSeconds(0.05f);
         }
-        
     }
 }
