@@ -22,13 +22,16 @@ public class MosquitoBehaviour : MonoBehaviour {
     void Start() {
         if (!gameCanvas) {
             gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<RectTransform>();
-            myRectTransform = GetComponent<RectTransform>();
-            xRange = (gameCanvas.rect.width / 2) - myRectTransform.rect.width;
-            yRange = (gameCanvas.rect.height / 2) - myRectTransform.rect.height;
         }
+
+        myRectTransform = GetComponent<RectTransform>();
+        xRange = (gameCanvas.rect.width / 2) - myRectTransform.rect.width;
+        yRange = (gameCanvas.rect.height / 2) - myRectTransform.rect.height;
 
         image = GetComponent<Image>();
         animator = GetComponent<Animator>();
+
+        // TODO: initial position out of visible canvas
 
         InvokeRepeating(nameof(ChoosePosition), 1f, Random.Range(1f, 3f));
     }
