@@ -74,5 +74,6 @@ public class MosquitoBehaviour : MonoBehaviour {
         image.sprite = deadSprite;
         image.raycastTarget = false;
         transform.SetParent(deadPool, false);
+        myRectTransform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
     }
 }
