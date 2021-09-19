@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameCanvas
   - SpawnPoint
+  - DeadPool
   layers:
   - Default
   - TransparentFX

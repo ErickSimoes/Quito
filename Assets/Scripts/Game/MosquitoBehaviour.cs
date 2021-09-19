@@ -19,6 +19,7 @@ public class MosquitoBehaviour : MonoBehaviour {
 
     Vector3 targetPosition;
     bool isAlive = true;
+    static RectTransform deadPool;
     
     void Start() {
         if (!gameCanvas) {
@@ -37,6 +38,10 @@ public class MosquitoBehaviour : MonoBehaviour {
         animator = GetComponent<Animator>();
 
         myRectTransform.localPosition = spawnPoints[Random.Range(0, spawnPoints.Length)].GetComponent<RectTransform>().localPosition;
+
+        if (!deadPool) {
+            deadPool = GameObject.FindGameObjectWithTag("DeadPool").GetComponent<RectTransform>();
+        }
 
         InvokeRepeating(nameof(ChoosePosition), 1f, Random.Range(1f, 3f));
     }
@@ -68,5 +73,6 @@ public class MosquitoBehaviour : MonoBehaviour {
         animator.enabled = false;
         image.sprite = deadSprite;
         image.raycastTarget = false;
+        transform.SetParent(deadPool, false);
     }
 }
