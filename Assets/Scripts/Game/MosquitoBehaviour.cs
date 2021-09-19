@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MosquitoBehaviour : MonoBehaviour {
 
+    static GameObject[] spawnPoints;
     static RectTransform gameCanvas;
     static float xRange, yRange;
     RectTransform myRectTransform;
@@ -28,10 +29,14 @@ public class MosquitoBehaviour : MonoBehaviour {
         xRange = (gameCanvas.rect.width / 2) - myRectTransform.rect.width;
         yRange = (gameCanvas.rect.height / 2) - myRectTransform.rect.height;
 
+        if (spawnPoints == null || spawnPoints.Length == 0) {
+            spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        }
+
         image = GetComponent<Image>();
         animator = GetComponent<Animator>();
 
-        // TODO: initial position out of visible canvas
+        myRectTransform.localPosition = spawnPoints[Random.Range(0, spawnPoints.Length)].GetComponent<RectTransform>().localPosition;
 
         InvokeRepeating(nameof(ChoosePosition), 1f, Random.Range(1f, 3f));
     }
@@ -62,5 +67,6 @@ public class MosquitoBehaviour : MonoBehaviour {
 
         animator.enabled = false;
         image.sprite = deadSprite;
+        image.raycastTarget = false;
     }
 }
