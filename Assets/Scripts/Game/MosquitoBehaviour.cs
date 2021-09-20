@@ -15,7 +15,6 @@ public class MosquitoBehaviour : MonoBehaviour {
     [SerializeField]
     Sprite deadSprite;
     Image image;
-    Animator animator;
 
     Vector3 targetPosition;
     bool isAlive = true;
@@ -35,7 +34,6 @@ public class MosquitoBehaviour : MonoBehaviour {
         }
 
         image = GetComponent<Image>();
-        animator = GetComponent<Animator>();
 
         myRectTransform.localPosition = spawnPoints[Random.Range(0, spawnPoints.Length)].GetComponent<RectTransform>().localPosition;
 
@@ -71,7 +69,7 @@ public class MosquitoBehaviour : MonoBehaviour {
         GameController.score++;
         CancelInvoke(nameof(ChoosePosition));
 
-        animator.enabled = false;
+        Destroy(GetComponent<Animator>());
         image.sprite = deadSprite;
         image.raycastTarget = false;
         transform.SetParent(deadPool, false);
