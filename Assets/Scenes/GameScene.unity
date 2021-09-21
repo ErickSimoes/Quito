@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 134480635}
   - component: {fileID: 134480636}
+  - component: {fileID: 134480637}
   m_Layer: 5
   m_Name: SpawnPositionS
   m_TagString: SpawnPoint
@@ -167,6 +168,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134480634}
   m_CullTransparentMesh: 1
+--- !u!114 &134480637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134480634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b402a82f13b41947141e20635a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0
 --- !u!1 &214587359
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 901119436}
   - component: {fileID: 901119437}
+  - component: {fileID: 901119438}
   m_Layer: 5
   m_Name: SpawnPositionW
   m_TagString: SpawnPoint
@@ -695,6 +710,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901119435}
   m_CullTransparentMesh: 1
+--- !u!114 &901119438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901119435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b402a82f13b41947141e20635a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
 --- !u!1001 &959868018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -802,6 +830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1043885428}
   - component: {fileID: 1043885429}
+  - component: {fileID: 1043885430}
   m_Layer: 5
   m_Name: SpawnPositionN
   m_TagString: SpawnPoint
@@ -836,6 +865,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043885427}
   m_CullTransparentMesh: 1
+--- !u!114 &1043885430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043885427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b402a82f13b41947141e20635a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0
 --- !u!1 &1130659559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1604416015}
   - component: {fileID: 1604416016}
+  - component: {fileID: 1604416017}
   m_Layer: 5
   m_Name: SpawnPositionE
   m_TagString: SpawnPoint
@@ -1120,6 +1163,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604416014}
   m_CullTransparentMesh: 1
+--- !u!114 &1604416017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604416014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b402a82f13b41947141e20635a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
 --- !u!1 &1937348760
 GameObject:
   m_ObjectHideFlags: 0
