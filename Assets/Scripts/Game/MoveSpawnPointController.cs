@@ -12,21 +12,26 @@ public class MoveSpawnPointController : MonoBehaviour {
     [SerializeField]
     SlideDirection direction;
     RectTransform myRectTransform;
-    Rect gameCanvasRect;
+    static RectTransform gameCanvasRectTransform;
 
     const float SPEED = 350;
     Vector2 minPosition, maxPosition, targetPosition;
 
     void Start() {
-        gameCanvasRect = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<RectTransform>().rect;
+        if (!gameCanvasRectTransform) {
+            gameCanvasRectTransform = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<RectTransform>();
+        }
+
+        float width = gameCanvasRectTransform.rect.width;
+        float height = gameCanvasRectTransform.rect.height;
         
         myRectTransform = GetComponent<RectTransform>();
         if (direction == SlideDirection.HORIZONTAL) {
-            minPosition = new Vector2(-(gameCanvasRect.width / 2), myRectTransform.localPosition.y);
-            maxPosition = new Vector2(gameCanvasRect.width / 2, myRectTransform.localPosition.y);
+            minPosition = new Vector2(-(width / 2), myRectTransform.localPosition.y);
+            maxPosition = new Vector2(width / 2, myRectTransform.localPosition.y);
         } else {
-            minPosition = new Vector2(myRectTransform.localPosition.x, - (gameCanvasRect.height / 2));
-            maxPosition = new Vector2(myRectTransform.localPosition.x, gameCanvasRect.height / 2);
+            minPosition = new Vector2(myRectTransform.localPosition.x, - (height / 2));
+            maxPosition = new Vector2(myRectTransform.localPosition.x, height / 2);
         }
         targetPosition = minPosition;
     }
