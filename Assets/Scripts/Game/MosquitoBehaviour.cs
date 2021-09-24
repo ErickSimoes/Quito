@@ -11,7 +11,8 @@ public class MosquitoBehaviour : MonoBehaviour {
     RectTransform myRectTransform;
 
     [SerializeField]
-    float speed = 150;
+    float speedReference = 150;
+    float speed;
     [SerializeField]
     Sprite deadSprite;
     Image image;
@@ -61,6 +62,8 @@ public class MosquitoBehaviour : MonoBehaviour {
     }
 
     void ChoosePosition() {
+        speed = Random.value >= .5 ? speedReference * 3 : speedReference;
+
         targetPosition = new Vector3(Random.Range(-xRange, xRange), Random.Range(-yRange, yRange));
     }
 
