@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedReference: 150
   animator: {fileID: 1455288964117817629}
+  image: {fileID: 1455288964117817631}
 --- !u!95 &1455288964117817629
 Animator:
   serializedVersion: 3

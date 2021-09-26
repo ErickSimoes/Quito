@@ -16,6 +16,7 @@ public class MosquitoBehaviour : MonoBehaviour {
 
     [SerializeField]
     Animator animator;
+    [SerializeField]
     Image image;
 
     Vector3 targetPosition;
@@ -34,8 +35,6 @@ public class MosquitoBehaviour : MonoBehaviour {
         if (spawnPoints == null || spawnPoints.Length == 0) {
             spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         }
-
-        image = GetComponent<Image>();
 
         myRectTransform.localPosition = spawnPoints[Random.Range(0, spawnPoints.Length)].GetComponent<RectTransform>().localPosition;
 
