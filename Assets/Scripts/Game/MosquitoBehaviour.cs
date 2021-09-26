@@ -13,8 +13,9 @@ public class MosquitoBehaviour : MonoBehaviour {
     [SerializeField]
     float speedReference = 150;
     float speed;
+
     [SerializeField]
-    Sprite deadSprite;
+    Animator animator;
     Image image;
 
     Vector3 targetPosition;
@@ -72,9 +73,10 @@ public class MosquitoBehaviour : MonoBehaviour {
         GameController.score++;
         CancelInvoke(nameof(ChoosePosition));
 
-        Destroy(GetComponent<Animator>());
-        image.sprite = deadSprite;
+        animator.SetBool("IsDead", true);
+        
         image.raycastTarget = false;
+
         transform.SetParent(deadPool, false);
         myRectTransform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
     }
