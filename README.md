@@ -1,2 +1,3 @@
-# Silly Game I
-A silly game about quickly clicking a circle
+# Quito
+
+A silly game about killing mosquitoes
