@@ -20,7 +20,7 @@ public class MosquitoBehaviour : MonoBehaviour {
     Image image;
 
     Vector3 targetPosition;
-    bool isAlive = true;
+    bool isAlive = true, isSting = false;
     static RectTransform deadPool;
     
     void Start() {
@@ -42,11 +42,12 @@ public class MosquitoBehaviour : MonoBehaviour {
             deadPool = GameObject.FindGameObjectWithTag("DeadPool").GetComponent<RectTransform>();
         }
 
+        ChoosePosition();
         InvokeRepeating(nameof(ChoosePosition), 1f, Random.Range(1f, 3f));
     }
 
     void Update() {
-        if (isAlive) {
+        if (isAlive && !isSting) {
             myRectTransform.localPosition = Vector2.MoveTowards(myRectTransform.localPosition, targetPosition, speed * Time.deltaTime);
 
             if (myRectTransform.localPosition.x < targetPosition.x) {
@@ -57,7 +58,17 @@ public class MosquitoBehaviour : MonoBehaviour {
         }
 
         if (myRectTransform.localPosition == targetPosition) {
+            ChooseBehaviour();
+        }
+    }
+
+    void ChooseBehaviour() {
+        if (Random.Range(1, 10) > 9) {
+            isSting = false;
             ChoosePosition();
+        } else {
+            isSting = true;
+            animator.SetBool("IsSting", true);
         }
     }
 
