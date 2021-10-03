@@ -55,11 +55,12 @@ public class MosquitoBehaviour : MonoBehaviour {
             } else {
                 myRectTransform.localScale = Vector3.one;
             }
+
+            if (myRectTransform.localPosition == targetPosition) {
+                ChooseBehaviour();
+            }
         }
 
-        if (myRectTransform.localPosition == targetPosition) {
-            ChooseBehaviour();
-        }
     }
 
     void ChooseBehaviour() {
