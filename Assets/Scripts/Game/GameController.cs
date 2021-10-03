@@ -23,21 +23,17 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     TextMeshProUGUI timeTMP;
-    [SerializeField]
-    int limitTime = 20;
     int initialTime, countTime;
 
     void Start() {
         UnityMainThreadDispatcher.Instance().Enqueue(BlinkText());
-        
-        timeTMP.text = $"Time: {limitTime}";
     }
 
     void Update() {
         if (gameStarted) {
-            countTime = limitTime - ((int)Time.realtimeSinceStartup - initialTime);
+            countTime = (int)Time.realtimeSinceStartup - initialTime;
             UnityMainThreadDispatcher.Instance().Enqueue(() => scoreTMP.text = $"Score: {score}");
-            UnityMainThreadDispatcher.Instance().Enqueue(() => timeTMP.text = $"Time: {countTime}");
+            UnityMainThreadDispatcher.Instance().Enqueue(() => timeTMP.text = $"Time: {countTime}s");
 
             if (time2create < Time.realtimeSinceStartup) {
                 CreateMosquito();
