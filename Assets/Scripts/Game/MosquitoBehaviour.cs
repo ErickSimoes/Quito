@@ -63,12 +63,12 @@ public class MosquitoBehaviour : MonoBehaviour {
     }
 
     void ChooseBehaviour() {
-        if (Random.Range(1, 10) > 9) {
-            isSting = false;
-            ChoosePosition();
-        } else {
+        if (Random.Range(1, 5) > 3) {
             isSting = true;
             animator.SetBool("IsSting", true);
+            CancelInvoke(nameof(ChoosePosition));
+        } else {
+            ChoosePosition();
         }
     }
 
