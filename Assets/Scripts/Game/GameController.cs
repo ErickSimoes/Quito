@@ -37,12 +37,7 @@ public class GameController : MonoBehaviour {
 
             if (time2create < Time.realtimeSinceStartup) {
                 CreateMosquito();
-
                 time2create = Time.realtimeSinceStartup + Random.Range(0.5f, 4f);
-            }
-
-            if (countTime <= 0) {
-                print("End Game"); // TODO: End game
             }
         }
     }
