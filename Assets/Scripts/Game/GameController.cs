@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour {
     int initialTime, countTime;
 
     void Start() {
-        UnityMainThreadDispatcher.Instance().Enqueue(BlinkText());
+        UnityMainThreadDispatcher.Instance().Enqueue(Blink());
     }
 
     void Update() {
@@ -53,14 +53,14 @@ public class GameController : MonoBehaviour {
         if (!gameStarted) {
             gameStarted = true;
 
-            StopCoroutine(BlinkText());
+            StopCoroutine(Blink());
             startButton.gameObject.SetActive(false);
 
             initialTime = (int)Time.realtimeSinceStartup;
         }
     }
 
-    IEnumerator BlinkText() {
+    IEnumerator Blink() {
         Color color = startButton.image.color;
         while(true) {
             color.a = .2f + Mathf.PingPong(Time.time, .8f);
