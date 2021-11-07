@@ -85,7 +85,6 @@ public class MosquitoBehaviour : MonoBehaviour {
 
     public void OnClick() {
         isAlive = false;
-        GameController.score++;
         CancelInvoke(nameof(ChoosePosition));
 
         animator.SetBool("IsDead", true);

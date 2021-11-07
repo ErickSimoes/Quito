@@ -14,9 +14,10 @@ public class GameController : MonoBehaviour {
     Button startButton;
     bool gameStarted = false;
 
+    [Header("Life Bar")]
     [SerializeField]
-    TextMeshProUGUI scoreTMP;
-    public static int score = 0;
+    Image lifeBar;
+    public static float life = 100;
 
     [SerializeField]
     TextMeshProUGUI timeTMP;
@@ -29,8 +30,8 @@ public class GameController : MonoBehaviour {
     void Update() {
         if (gameStarted) {
             countTime = (int)Time.realtimeSinceStartup - initialTime;
-            UnityMainThreadDispatcher.Instance().Enqueue(() => scoreTMP.text = $"Score: {score}");
             UnityMainThreadDispatcher.Instance().Enqueue(() => timeTMP.text = $"Time: {countTime}s");
+            UnityMainThreadDispatcher.Instance().Enqueue(() => lifeBar.fillAmount = life / 100);
 
             if (time2create < Time.realtimeSinceStartup) {
                 CreateMosquito();
