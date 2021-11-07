@@ -10,6 +10,9 @@ public class MosquitoBehaviour : MonoBehaviour {
     static float xRange, yRange;
     RectTransform myRectTransform;
 
+    [Header("Swig Size")]
+    public int swig;
+
     [SerializeField]
     float speedReference = 150;
     float speed;
@@ -22,7 +25,8 @@ public class MosquitoBehaviour : MonoBehaviour {
     Vector3 targetPosition;
     bool isAlive = true, isSting = false;
     static RectTransform deadPool;
-    
+    Coroutine suckBlood;
+
     void Start() {
         if (!gameCanvas) {
             gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<RectTransform>();
@@ -75,6 +79,14 @@ public class MosquitoBehaviour : MonoBehaviour {
         isSting = true;
         animator.SetBool("IsSting", true);
         CancelInvoke(nameof(ChoosePosition));
+        suckBlood = StartCoroutine(SuckBlood());
+    }
+
+    IEnumerator SuckBlood() {
+        while(true) {
+            GameController.life -= swig;
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     void ChoosePosition() {
@@ -86,6 +98,9 @@ public class MosquitoBehaviour : MonoBehaviour {
     public void OnClick() {
         isAlive = false;
         CancelInvoke(nameof(ChoosePosition));
+        if (suckBlood != null) {
+            StopCoroutine(suckBlood);
+        }
 
         animator.SetBool("IsDead", true);
         
