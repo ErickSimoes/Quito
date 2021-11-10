@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swig: 5
-  speedReference: 150
+  speedReference: 200
   animator: {fileID: 1455288964117817629}
   image: {fileID: 1455288964117817631}
 --- !u!95 &1455288964117817629

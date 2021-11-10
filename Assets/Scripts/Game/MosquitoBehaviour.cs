@@ -13,8 +13,9 @@ public class MosquitoBehaviour : MonoBehaviour {
     [Header("Swig Size")]
     public int swig;
 
+    [Header("Speed")]
     [SerializeField]
-    float speedReference = 150;
+    float speedReference = 200;
     float speed;
 
     [SerializeField]
@@ -68,7 +69,7 @@ public class MosquitoBehaviour : MonoBehaviour {
     }
 
     void ChooseBehaviour() {
-        if (Random.Range(1, 5) > 3) {
+        if (Random.value <= .8) {
             Sting();
         } else {
             ChoosePosition();
@@ -90,7 +91,7 @@ public class MosquitoBehaviour : MonoBehaviour {
     }
 
     void ChoosePosition() {
-        speed = Random.value >= .5 ? speedReference * 3 : speedReference;
+        speed = Random.value >= .5 ? speedReference * 4 : speedReference;
 
         targetPosition = new Vector3(Random.Range(-xRange, xRange), Random.Range(-yRange, yRange));
     }
