@@ -19,6 +19,12 @@ public class GameController : MonoBehaviour {
     Image lifeBar;
     public static float life = 100;
 
+    [Header("Mosquito Creation")]
+    [SerializeField]
+    float minCreateRange;
+    [SerializeField]
+    float maxCreateRange;
+
     [SerializeField]
     TextMeshProUGUI timeTMP;
     int initialTime, countTime;
@@ -35,7 +41,7 @@ public class GameController : MonoBehaviour {
 
             if (time2create < Time.realtimeSinceStartup) {
                 CreateMosquito();
-                time2create = Time.realtimeSinceStartup + Random.Range(0.5f, 4f);
+                time2create = Time.realtimeSinceStartup + Random.Range(minCreateRange, maxCreateRange);
             }
 
             // Detect end game

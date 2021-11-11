@@ -959,6 +959,8 @@ MonoBehaviour:
   mosquito: {fileID: 1455288964117817603, guid: ed2d902064589604b8750ce3f99f7eb4, type: 3}
   startButton: {fileID: 214587361}
   lifeBar: {fileID: 614640515}
+  minCreateRange: 1
+  maxCreateRange: 5
   timeTMP: {fileID: 2085801764}
 --- !u!1 &1604416014
 GameObject:
@@ -1157,6 +1159,8 @@ MonoBehaviour:
   mosquito: {fileID: 0}
   startButton: {fileID: 0}
   lifeBar: {fileID: 0}
+  minCreateRange: 0
+  maxCreateRange: 0
   timeTMP: {fileID: 0}
 --- !u!114 &1976399835
 MonoBehaviour:
