@@ -110,4 +110,9 @@ public class MosquitoBehaviour : MonoBehaviour {
         transform.SetParent(deadPool, false);
         myRectTransform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
     }
+
+    public void DestroyMe() {
+        Destroy(this.gameObject);
+    }
+
 }
