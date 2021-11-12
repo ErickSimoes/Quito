@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e319875a599afa4799645d694ae9af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swig: 5
+  swig: 2.5
   speedReference: 200
   animator: {fileID: 1455288964117817629}
   image: {fileID: 1455288964117817631}

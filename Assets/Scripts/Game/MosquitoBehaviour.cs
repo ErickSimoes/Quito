@@ -11,7 +11,7 @@ public class MosquitoBehaviour : MonoBehaviour {
     RectTransform myRectTransform;
 
     [Header("Swig Size")]
-    public int swig;
+    public float swig;
 
     [Header("Speed")]
     [SerializeField]
