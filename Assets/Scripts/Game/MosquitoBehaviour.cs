@@ -15,7 +15,7 @@ public class MosquitoBehaviour : MonoBehaviour {
 
     [Header("Speed")]
     [SerializeField]
-    float speedReference = 200;
+    public float speedReference = 200;
     float speed;
 
     [SerializeField]
@@ -102,6 +102,8 @@ public class MosquitoBehaviour : MonoBehaviour {
         if (suckBlood != null) {
             StopCoroutine(suckBlood);
         }
+
+        GameController.totalMosquitoDead++;
 
         animator.SetBool("IsDead", true);
         

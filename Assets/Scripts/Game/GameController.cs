@@ -32,9 +32,20 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     float maxCreateRange;
 
+    [Header("Dead Step")]
+    [SerializeField]
+    int deadStep;
+    [SerializeField]
+    float decrementCreationStep;
+    [SerializeField]
+    float mosquitoSpeedIncrement;
+    int nextDeadStep;
+    public static int totalMosquitoDead = 0;
+
 
     void Start() {
         UnityMainThreadDispatcher.Instance().Enqueue(Blink());
+        nextDeadStep = deadStep;
     }
 
     void Update() {
@@ -43,9 +54,18 @@ public class GameController : MonoBehaviour {
             UnityMainThreadDispatcher.Instance().Enqueue(() => timeTMP.text = $"Time: {countTime}s");
             UnityMainThreadDispatcher.Instance().Enqueue(() => lifeBar.fillAmount = life / 100);
 
+            // Increment difficulty
+            if (totalMosquitoDead >= nextDeadStep) {
+                nextDeadStep += deadStep;
+
+                minCreateRange -= decrementCreationStep;
+                maxCreateRange -= decrementCreationStep * 2;
+            }
+
             if (time2create < Time.realtimeSinceStartup) {
-                CreateMosquito();
                 time2create = Time.realtimeSinceStartup + Random.Range(minCreateRange, maxCreateRange);
+
+                CreateMosquito();
             }
 
             // Detect end game
@@ -56,7 +76,8 @@ public class GameController : MonoBehaviour {
     }
 
     void CreateMosquito() {
-        Instantiate(mosquito, transform);
+        GameObject newMosquito = Instantiate(mosquito, transform);
+        newMosquito.GetComponent<MosquitoBehaviour>().speedReference += mosquitoSpeedIncrement;
     }
 
     public void OnClick() {

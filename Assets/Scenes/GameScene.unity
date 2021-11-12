@@ -958,10 +958,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mosquito: {fileID: 1455288964117817603, guid: ed2d902064589604b8750ce3f99f7eb4, type: 3}
   startButton: {fileID: 214587361}
+  timeTMP: {fileID: 2085801764}
   lifeBar: {fileID: 614640515}
   minCreateRange: 1
   maxCreateRange: 5
-  timeTMP: {fileID: 2085801764}
+  deadStep: 10
+  decrementCreationStep: 0.2
+  mosquitoSpeedIncrement: 30
 --- !u!1 &1604416014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,10 +1161,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mosquito: {fileID: 0}
   startButton: {fileID: 0}
+  timeTMP: {fileID: 0}
   lifeBar: {fileID: 0}
   minCreateRange: 0
   maxCreateRange: 0
-  timeTMP: {fileID: 0}
+  deadStep: 0
+  decrementCreationStep: 0
+  mosquitoSpeedIncrement: 0
 --- !u!114 &1976399835
 MonoBehaviour:
   m_ObjectHideFlags: 0
