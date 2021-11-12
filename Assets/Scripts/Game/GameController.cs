@@ -6,13 +6,20 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
+    [Header("Mosquito Prefab")]
     [SerializeField]
     GameObject mosquito;
     float time2create = 0f;
 
+    [Header("Start Button")]
     [SerializeField]
     Button startButton;
     bool gameStarted = false;
+
+    [Header("Time Text")]
+    [SerializeField]
+    TextMeshProUGUI timeTMP;
+    int initialTime, countTime;
 
     [Header("Life Bar")]
     [SerializeField]
@@ -25,9 +32,6 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     float maxCreateRange;
 
-    [SerializeField]
-    TextMeshProUGUI timeTMP;
-    int initialTime, countTime;
 
     void Start() {
         UnityMainThreadDispatcher.Instance().Enqueue(Blink());
