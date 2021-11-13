@@ -18,6 +18,7 @@ public class MosquitoBehaviour : MonoBehaviour {
     public float speedReference = 200;
     float speed;
 
+    [Header("Animator")]
     [SerializeField]
     Animator animator;
     [SerializeField]
