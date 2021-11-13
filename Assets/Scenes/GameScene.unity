@@ -289,6 +289,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1151975841}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: StartEntry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &214587362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +434,7 @@ GameObject:
   - component: {fileID: 614640514}
   - component: {fileID: 614640516}
   - component: {fileID: 614640515}
+  - component: {fileID: 614640517}
   m_Layer: 5
   m_Name: LifeBarImage
   m_TagString: Untagged
@@ -487,6 +500,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614640513}
   m_CullTransparentMesh: 1
+--- !u!95 &614640517
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614640513}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 35c3edef0a9287043864d00d190de278, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &824069382
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +993,9 @@ MonoBehaviour:
   startButton: {fileID: 214587361}
   timeTMP: {fileID: 2085801764}
   lifeBar: {fileID: 614640515}
+  animators:
+  - {fileID: 2085801766}
+  - {fileID: 614640517}
   minCreateRange: 1
   maxCreateRange: 5
   deadStep: 10
@@ -1163,6 +1199,7 @@ MonoBehaviour:
   startButton: {fileID: 0}
   timeTMP: {fileID: 0}
   lifeBar: {fileID: 0}
+  animators: []
   minCreateRange: 0
   maxCreateRange: 0
   deadStep: 0
@@ -1354,6 +1391,7 @@ GameObject:
   - component: {fileID: 2085801763}
   - component: {fileID: 2085801765}
   - component: {fileID: 2085801764}
+  - component: {fileID: 2085801766}
   m_Layer: 5
   m_Name: TimeTextTMP
   m_TagString: Untagged
@@ -1478,3 +1516,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085801762}
   m_CullTransparentMesh: 1
+--- !u!95 &2085801766
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085801762}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86758c73252493c4cbfc0e4fd316bdac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

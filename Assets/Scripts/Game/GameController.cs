@@ -26,6 +26,10 @@ public class GameController : MonoBehaviour {
     Image lifeBar;
     public static float life = 100;
 
+    [Header("UI Entry Animators")]
+    [SerializeField]
+    Animator[] animators;
+
     [Header("Mosquito Creation")]
     [SerializeField]
     float minCreateRange;
@@ -104,6 +108,12 @@ public class GameController : MonoBehaviour {
             color.a = .2f + Mathf.PingPong(Time.time, .8f);
             startButton.image.color = color;
             yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    public void StartEntry() {
+        foreach(Animator animator in animators){
+            animator.SetBool("Entry", true);
         }
     }
 }
