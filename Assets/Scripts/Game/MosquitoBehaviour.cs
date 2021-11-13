@@ -21,8 +21,6 @@ public class MosquitoBehaviour : MonoBehaviour {
     [Header("Animator")]
     [SerializeField]
     Animator animator;
-    [SerializeField]
-    Image image;
 
     Vector3 targetPosition;
     bool isAlive = true, isSting = false;
@@ -107,8 +105,8 @@ public class MosquitoBehaviour : MonoBehaviour {
         GameController.totalMosquitoDead++;
 
         animator.SetBool("IsDead", true);
-        
-        image.raycastTarget = false;
+
+        GetComponent<Image>().raycastTarget = false;
 
         transform.SetParent(deadPool, false);
         myRectTransform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
