@@ -42,8 +42,15 @@ public class GameController : MonoBehaviour {
     int nextDeadStep;
     public static int totalMosquitoDead = 0;
 
+    public static float gameCanvasWidth;
+    public static float gameCanvasHeight;
+
 
     void Start() {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        gameCanvasWidth = rectTransform.rect.width;
+        gameCanvasHeight = rectTransform.rect.height;
+
         UnityMainThreadDispatcher.Instance().Enqueue(Blink());
         nextDeadStep = deadStep;
     }

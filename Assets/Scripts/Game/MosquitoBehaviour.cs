@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class MosquitoBehaviour : MonoBehaviour {
 
     static GameObject[] spawnPoints;
-    static RectTransform gameCanvas;
     static float xRange, yRange;
     RectTransform myRectTransform;
 
@@ -28,13 +27,9 @@ public class MosquitoBehaviour : MonoBehaviour {
     Coroutine suckBlood;
 
     void Start() {
-        if (!gameCanvas) {
-            gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<RectTransform>();
-        }
-
         myRectTransform = GetComponent<RectTransform>();
-        xRange = (gameCanvas.rect.width / 2) - myRectTransform.rect.width;
-        yRange = (gameCanvas.rect.height / 2) - myRectTransform.rect.height;
+        xRange = (GameController.gameCanvasWidth / 2) - myRectTransform.rect.width;
+        yRange = (GameController.gameCanvasHeight / 2) - myRectTransform.rect.height;
 
         if (spawnPoints == null || spawnPoints.Length == 0) {
             spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
