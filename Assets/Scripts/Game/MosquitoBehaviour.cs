@@ -21,10 +21,20 @@ public class MosquitoBehaviour : MonoBehaviour {
     [SerializeField]
     Animator animator;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip flying;
+    [SerializeField] AudioClip swallowing;
+    [SerializeField] AudioClip[] smashed;
+    AudioSource audioSource;
+
     Vector3 targetPosition;
     bool isAlive = true, isSting = false;
     static RectTransform deadPool;
     Coroutine suckBlood;
+
+    void Awake() {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Start() {
         myRectTransform = GetComponent<RectTransform>();
@@ -43,6 +53,9 @@ public class MosquitoBehaviour : MonoBehaviour {
 
         ChoosePosition();
         InvokeRepeating(nameof(ChoosePosition), 1f, Random.Range(1f, 3f));
+
+        audioSource.clip = flying;
+        audioSource.Play();
     }
 
     void Update() {
@@ -74,6 +87,10 @@ public class MosquitoBehaviour : MonoBehaviour {
         isSting = true;
         animator.SetBool("IsSting", true);
         CancelInvoke(nameof(ChoosePosition));
+
+        audioSource.clip = swallowing;
+        audioSource.Play();
+
         suckBlood = StartCoroutine(SuckBlood());
     }
 
@@ -100,6 +117,10 @@ public class MosquitoBehaviour : MonoBehaviour {
         GameController.totalMosquitoDead++;
 
         animator.SetBool("IsDead", true);
+
+        audioSource.clip = smashed[Random.Range(0, smashed.Length)];
+        audioSource.loop = false;
+        audioSource.Play();
 
         GetComponent<Image>().raycastTarget = false;
 
